@@ -1,4 +1,5 @@
 class Element < ActiveRecord::Base
   belongs_to :conservation
-  validates :name, :conservation_id, presence: true
+  belongs_to :highway
+  validates :name, :conservation_id, :highway_id, presence: true
 end

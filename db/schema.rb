@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208200156) do
+ActiveRecord::Schema.define(version: 20150208210037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,9 +33,11 @@ ActiveRecord::Schema.define(version: 20150208200156) do
     t.integer  "conservation_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "highway_id"
   end
 
   add_index "elements", ["conservation_id"], name: "index_elements_on_conservation_id", using: :btree
+  add_index "elements", ["highway_id"], name: "index_elements_on_highway_id", using: :btree
 
   create_table "highways", force: :cascade do |t|
     t.string   "name"
@@ -47,5 +49,6 @@ ActiveRecord::Schema.define(version: 20150208200156) do
   add_index "highways", ["direction_id"], name: "index_highways_on_direction_id", using: :btree
 
   add_foreign_key "elements", "conservations"
+  add_foreign_key "elements", "highways"
   add_foreign_key "highways", "directions"
 end
