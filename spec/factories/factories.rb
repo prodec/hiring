@@ -15,4 +15,9 @@ FactoryGirl.define do
     direction
   end
 
+  factory :element do
+    name "placa"
+    conservation
+  end
+
 end
