@@ -1,0 +1,5 @@
+= form_for :import_csv, url: import_csv_upload_path, multipart: true do |f|
+  = f.label :file
+  = f.file_field :file
+  %br/
+  = submit_tag "Import"

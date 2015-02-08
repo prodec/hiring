@@ -16,7 +16,10 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
   gem 'pry'
+  gem 'capybara'
 end
+
+gem 'quiet_assets', group: :development 
 
 group :test do
   gem 'factory_girl_rails', '~> 4.0'
@@ -24,3 +27,4 @@ group :test do
 end
 
 gem 'haml'
+gem 'thin'
