@@ -6,4 +6,8 @@ FactoryGirl.define do
     end
   end
 
+  factory :direction do
+    name "south"
+  end
+
 end
