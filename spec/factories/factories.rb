@@ -10,4 +10,9 @@ FactoryGirl.define do
     name "south"
   end
 
+  factory :highway do
+    name "br-153"
+    direction
+  end
+
 end
