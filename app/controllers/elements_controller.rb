@@ -1,7 +1,7 @@
 class ElementsController < ApplicationController
 
-  def index    
-    @elements = Element.includes({highway: :direction}, :conservation)
+  def index
+    @elements = Element.search(params)
   end
 
 end
