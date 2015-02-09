@@ -1,0 +1,8 @@
+%h1 Home
+
+= form_for :import_csv, url: import_csv_upload_path, multipart: true, class: 'pure-form'  do |f|
+  %fieldset
+    %legend Upload CSV file
+    = f.label :file
+    = f.file_field :file
+    %button.pure-button.pure-button-primary{:type => "submit"} Import

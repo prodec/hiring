@@ -1,0 +1,28 @@
+%h1 Listing Elements
+
+= form_for :search, url: elements_url, html: { class: 'pure-form', method: :get } do |f|
+  = f.label :conservation
+  = f.collection_select :conservation_id, Conservation.order_number, :id, :number, prompt: true
+  = f.text_field :highway, placeholder: :highway, class: 'pure-input-rounded'
+  = f.text_field :direction, placeholder: :direction, class: 'pure-input-rounded'
+  %button.pure-button{:type => "submit"} Search
+
+%br
+
+- if @elements.present?
+  %table.pure-table.pure-table-bordered
+    %thead
+      %tr
+        %th Element
+        %th Highway
+        %th Direction
+        %th Conservation
+    %tbody
+      - @elements.each do |element|
+        %tr
+          %td= element.name
+          %td= element.highway_name
+          %td= element.direction_name
+          %td= element.conservation_number
+- else
+  No results
