@@ -1,0 +1,22 @@
+%h1 Listing Elements
+
+%form.pure-form
+  %input.pure-input-rounded{:type => "text"}
+  %button.pure-button{:type => "submit"} Search
+
+%br
+
+%table.pure-table.pure-table-bordered
+  %thead
+    %tr
+      %th Element
+      %th Highway
+      %th Direction
+      %th Conservation
+  %tbody
+    - @elements.each do |element|
+      %tr
+        %td= element.name
+        %td= element.highway.name
+        %td= element.highway.direction.name
+        %td= element.conservation.number

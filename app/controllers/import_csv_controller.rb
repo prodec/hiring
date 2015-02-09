@@ -2,7 +2,7 @@ class ImportCsvController < ApplicationController
 
   def upload    
     ImportCsv.new(import_csv_params[:import_csv][:file]).run! if import_csv_params.present?
-    redirect_to root_url
+    redirect_to elements_path
   end
 
   private
