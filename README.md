@@ -21,3 +21,13 @@ Um novo cliente contratou o Sigvia e enviou em arquivos .csv os dados que devem 
 1. Faça o fork desse projeto no github.
 2. Codifique a aplicação nesse fork.
 3. Abra um pull request quando estiver pronto.
+
+### Instruções:
+
+- O aplicativo foi desenvolvido com ruby 2.2.0
+- O testes com rspec e capybara
+- Apos entrar no diretorio do projeto executar os seguintes comandos:
+  1. bundle install
+  2. rake db:create:all
+  3. rake db:migrate && rake db:migrate RAILS_ENV=test
+- O teste aumotatizado deve ser realizado com o comando "bundle exec rspec"
