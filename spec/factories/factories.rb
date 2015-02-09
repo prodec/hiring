@@ -1,9 +1,7 @@
 FactoryGirl.define do
 
   factory :conservation do
-    number do |n|
-      n
-    end
+    number 1
   end
 
   factory :direction do
@@ -18,6 +16,7 @@ FactoryGirl.define do
   factory :element do
     name "placa"
     conservation
+    highway
   end
 
 end
