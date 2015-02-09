@@ -28,3 +28,4 @@ end
 
 gem 'haml'
 gem 'thin'
+gem 'draper', '~> 1.3'
