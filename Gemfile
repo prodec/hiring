@@ -29,3 +29,4 @@ end
 gem 'haml'
 gem 'thin'
 gem 'draper', '~> 1.3'
+gem 'interactor', '~> 3.0'

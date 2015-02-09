@@ -22,3 +22,5 @@
 en:
   hello: "Hello world"
   invalid_input: "invalid input"
+  success_upload: "upload complete"
+  invalid_file: "can not be blank"

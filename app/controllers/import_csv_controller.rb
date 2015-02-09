@@ -1,8 +1,14 @@
 class ImportCsvController < ApplicationController
 
   def upload    
-    ImportCsv.new(import_csv_params[:import_csv][:file]).run! if import_csv_params.present?
-    redirect_to elements_path
+    result = UploadCsv.call(import_csv_params)
+    if result.success?
+      redirect_to elements_path, notice: t('success_upload')
+    else
+      flash.now[:error] = t(result.message)
+      render 'home/index'
+    end
+    
   end
 
   private

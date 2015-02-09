@@ -15,8 +15,12 @@
             = link_to "Home", root_url
           %li.pure-menu-selected
             = link_to "Elements", elements_url
+    
     .content
+      - flash.each do |key, value|
+        %div{:class => "flash #{key}"}= value
       .pure-g
         .pure-u-1-1
+          
           = yield
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
