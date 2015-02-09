@@ -30,4 +30,4 @@ Um novo cliente contratou o Sigvia e enviou em arquivos .csv os dados que devem 
   1. bundle install
   2. rake db:create:all
   3. rake db:migrate && rake db:migrate RAILS_ENV=test
-- O teste aumotatizado deve ser realizado com o comando "bundle exec rspec"
+- O teste automatizado deve ser realizado com o comando "bundle exec rspec"
