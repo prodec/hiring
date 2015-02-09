@@ -21,8 +21,8 @@
       - @elements.each do |element|
         %tr
           %td= element.name
-          %td= element.highway.name
-          %td= element.highway.direction.name
-          %td= element.conservation.number
+          %td= element.highway_name
+          %td= element.direction_name
+          %td= element.conservation_number
 - else
   No results
