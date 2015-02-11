@@ -1,0 +1,33 @@
+<%= form_for(@roadway) do |f| %>
+  <% if @roadway.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@roadway.errors.count, "error") %> prohibited this roadway from being saved:</h2>
+
+      <ul>
+      <% @roadway.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipo %><br>
+    <%= f.text_field :tipo %>
+  </div>
+  <div class="field">
+    <%= f.label :rodovia %><br>
+    <%= f.text_field :rodovia %>
+  </div>
+  <div class="field">
+    <%= f.label :sentido %><br>
+    <%= f.text_field :sentido %>
+  </div>
+  <div class="field">
+    <%= f.label :conservacao %><br>
+    <%= f.text_field :conservacao %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
