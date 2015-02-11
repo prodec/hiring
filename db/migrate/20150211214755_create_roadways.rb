@@ -4,7 +4,7 @@ class CreateRoadways < ActiveRecord::Migration
       t.string :tipo
       t.string :rodovia
       t.string :sentido
-      t.int :conservacao
+      t.integer :conservacao
 
       t.timestamps
     end
