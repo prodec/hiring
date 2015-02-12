@@ -7,6 +7,19 @@ class RoadwaysController < ApplicationController
     @roadways = Roadway.all
   end
 
+  def import
+
+    erros = Roadway.import(params[:file])
+
+    respond_to do |format|
+      if erros.nil?
+        format.html { redirect_to({action: "index"}, {notice: 'Roadway importado.'}) }
+      else
+        format.html { redirect_to({action: "index"}, {notice: "Roadway importado. As linhas: #{erros} não foram importadas pq tinham erros."}) }
+      end
+    end
+  end
+
   # GET /roadways/1
   # GET /roadways/1.json
   def show
@@ -24,11 +37,13 @@ class RoadwaysController < ApplicationController
   # POST /roadways
   # POST /roadways.json
   def create
-    @roadway = Roadway.new(roadway_params)
+    #@roadway = Roadway.new(roadway_params)
+    @roadway = Roadway.import(params[:file])
 
     respond_to do |format|
       if @roadway.save
-        format.html { redirect_to @roadway, notice: 'Roadway was successfully created.' }
+        #format.html { redirect_to @roadway, notice: 'Roadway was successfully created.' }
+        format.html { redirect_to({action: "index"}, {notice: 'Roadway was successfully created.'}) }
         format.json { render :show, status: :created, location: @roadway }
       else
         format.html { render :new }
@@ -69,6 +84,6 @@ class RoadwaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def roadway_params
-      params.require(:roadway).permit(:tipo, :rodovia, :sentido, :conservacao)
+      params.require(:roadway).permit(:file)
     end
 end
