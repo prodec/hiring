@@ -1,0 +1,18 @@
+<h2>Import Buildings</h2>
+<%= form_tag import_roadways_path, multipart: true do %>
+
+<% if @roadway.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@roadway.errors.count, "error") %> prohibited this roadway from being saved:</h2>
+
+  <ul>
+    <% @roadway.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<%= file_field_tag :file %>
+<%= submit_tag "Import" %>
+<% end %>
