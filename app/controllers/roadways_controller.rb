@@ -13,7 +13,7 @@ class RoadwaysController < ApplicationController
     erros = Roadway.import(params[:file])
 
     respond_to do |format|
-      if erros.nil?
+      if erros == []
         format.html { redirect_to({action: "index"}, {notice: 'Roadway importado.'}) }
       else
         format.html { redirect_to({action: "index"}, {notice: "Roadway importado. As linhas: #{erros} não foram importadas pq tinham erros."}) }
