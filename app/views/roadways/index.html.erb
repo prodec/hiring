@@ -2,6 +2,26 @@
 
 <p id="notice"><%= notice %></p>
 
+<%= search_form_for @search do |f| %>
+  <div class="field">
+    <%= f.label :rodovia_cont, "Rodovia que contém:" %>
+    <%= f.text_field :rodovia_cont %>
+  </div>
+  <div class="field">
+    <%= f.label :conservacao_gteq, "Conservação entre: " %>
+    <%= f.text_field :conservacao_gteq %>
+    <%= f.label :conservacao_lteq, " e " %>
+    <%= f.text_field :conservacao_lteq %>
+  </div>
+  <div class="field">
+    <%= f.label :sentido_cont, "Sentido" %>
+    <%= f.text_field :sentido_cont %>
+  </div>
+  <div class="action">
+    <%= f.submit "Search" %>
+  </div>
+<% end %>
+
 <table>
   <thead>
     <tr>

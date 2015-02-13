@@ -4,7 +4,8 @@ class RoadwaysController < ApplicationController
   # GET /roadways
   # GET /roadways.json
   def index
-    @roadways = Roadway.all
+    @search = Roadway.search(params[:q])
+    @roadways = @search.result
   end
 
   def import
