@@ -1,0 +1,25 @@
+<%- model_class = Point -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:tipo) %>:</strong></dt>
+  <dd><%= @point.tipo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rodovia) %>:</strong></dt>
+  <dd><%= @point.rodovia %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sentido) %>:</strong></dt>
+  <dd><%= @point.sentido %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:conservacao) %>:</strong></dt>
+  <dd><%= @point.conservacao %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              points_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_point_path(@point), :class => 'btn' %>
+  
+  <%= link_to "Destroy", [:delete, @point], :class => 'btn btn-danger' %>
+
+</div>
