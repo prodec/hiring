@@ -1,0 +1,23 @@
+<% if @points.empty? %>
+  <tr>
+    <td colspan="7"> NÃO OBTEVE RESULTADOS. </td>
+  </tr>
+<% else %>
+  <% @points.each do |point| %>
+    <tr>
+      <td><%= link_to point.id, point_path(point) %></td>
+      <td><%= point.tipo %></td>
+      <td><%= point.rodovia %></td>
+      <td><%= point.sentido %></td>
+      <td><%= point.conservacao %></td>
+      <td><%= point.created_at.strftime("%d/%m/%Y") %></td>
+      <td>
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                    edit_point_path(point), :class => 'btn btn-mini' %>
+        
+        <%= link_to "Delete", [:delete, point], :class => 'btn btn-mini btn-danger'  %>
+
+      </td>
+    </tr>
+  <% end %>
+<% end %>

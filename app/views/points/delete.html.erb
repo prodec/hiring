@@ -1,0 +1,5 @@
+<%= form_for @point, html: { method: :delete } do |f| %>
+	<h2> Tem certeza que deseja deletar este ponto ? <p>
+	<p> <%= f.submit "SIM", :class => 'btn btn-mini btn-danger'  %>  <%= link_to "NÃO / VOLTAR", points_path, :class => 'btn btn-mini btn-default' %>
+	</p>
+<% end %>

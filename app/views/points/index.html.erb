@@ -1,0 +1,79 @@
+<%- model_class = Point -%>
+
+<div class="page-header">
+  <h1>Lista de Pontos</h1>
+  <span class="pull-right prodec">#goProdec</span>
+</div>
+
+<%= search_form_for @q, url: search_points_path,
+                        html: { method: :post,  class: "form-horizontal"} do |f| %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Rodovia </th>
+        <th>Sentido</th>
+        <th>Conservação</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= f.search_field :rodovia_cont %></td>
+        <td><%= f.search_field :sentido_start %></td>
+        <td><%= f.search_field :conservacao_eq %></td>
+        <td><%= f.submit 'Procurar', class: "btn btn-primary" %></td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:tipo) %></th>
+        <%= content_tag :th, sort_link(@q, model_class.human_attribute_name(:rodovia), hide_indicator: true) %>
+        <%= content_tag :th, sort_link(@q, model_class.human_attribute_name(:sentido), hide_indicator: true) %>
+        <%= content_tag :th, sort_link(@q, model_class.human_attribute_name(:conservacao), hide_indicator: true) %>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render(
+      partial: 'points/list',
+      locals: { points: @points }
+    ) %>
+  </tbody>
+</table>
+
+<%= paginate @points %>
+
+<hgroup class="pull-right results">
+  <strong><p>Resultado da Busca: 
+    <span class="text-danger"><%= @points.total_count %></span> resultados foram encontrados
+  </p></strong>
+</hgroup>
+
+<br>
+
+<h2>Importar pontos</h2>
+
+<%= form_tag import_points_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Importar" %>
+<% end %>
+
+<br>
+
+<!-- <= link_to 'Novo Ponto', new_point_path %> -->
+
+
+
+<%= link_to 'Novo Ponto', new_point_path, :class => 'btn btn-primary' %>
+
+
+
+
