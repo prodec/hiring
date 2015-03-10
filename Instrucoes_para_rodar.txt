@@ -1,0 +1,20 @@
+1 - Instale o ruby on rails correspondente ao sistema operacional utilizado pelo link http://rubyonrails.org/download/ seguindo os passos fornecidos.
+
+2 - Baixe a pasta do projeto que fiz no gitrub extraia o conteúdo em uma pasta local.
+
+3 - Pelo prompt de comando (ou terminal no mac osx) entre na pasta onde o projeto foi extraido, por exemplo:
+cd users/thiago/ruby/sigvia
+
+4 - Rode o comando "rake db:migrate" para criar as tabelas do banco de dados. 
+
+5 - Execute "rails server" para iniciar o servidor rails e rodar o site.
+
+6 - No navegador digite o endereço para acessar o site: http://localhost:3000/dado/importa
+
+Para rodar os testes:
+
+1 - Ainda na pasta do projeto rodar o comando "bundle install".
+
+2 - Logo após rodar o comando "bundle exec spring binstub --all"
+
+3 - Então basta digitar: bin/rake test test/controllers/dado_controller_test.rb
