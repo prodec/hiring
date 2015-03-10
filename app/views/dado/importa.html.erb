@@ -1,0 +1,17 @@
+
+		<h2>Importação de Dados</h2>
+		<p>Os dados deverão ser importados no sistema via arquivo csv no padrão especificado.</p>
+		<p><%= link_to 'Clique aqui', controller: "dado", action: "download" %> para visualizar um exemplo.</p>
+		
+		</br>
+		<p>
+		<%= form_tag 'upload', multipart: true do %>
+		  <label for="file">Selecione o arquivo</label> <%= file_field_tag "file" %>
+		  <%= submit_tag "Upload" %>
+		<% end %>
+		</p>
+		
+		</p>
+		  <% if flash[:notice] %>
+		    <div class="notice"><%= flash[:notice] %></div>
+		  <% end %>

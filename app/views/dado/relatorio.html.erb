@@ -1,0 +1,32 @@
+<h2>Relatório</h2>
+<p></p>
+
+<%= form_tag(dado_relatorio_path, :method => "get") do %>
+  <p>
+    <%= text_field_tag :search, params[:search], placeholder: 'tipo/rodovia/sentido/conservação', size: 30 %>
+    <%= submit_tag "Buscar", :name => nil %>
+  </p>
+<% end %>
+
+<table>
+	<tr>
+		<td><b>Tipo</b></td>
+		<td><b>Rodovia</b></td>
+		<td><b>Sentido</b></td>
+		<td><b>Conservação</b></td>
+	</tr>
+	<% @dados.all.each do |dado| %>
+		<tr>
+			<td><%= dado.tipo%></td>
+			<td><%= dado.rodovia%></td>
+			<td><%= dado.sentido%></td>
+			<td><%= dado.conservacao%></td>
+			<td><%= link_to "Delete" , controller: "dado", action: "delete", id: dado.id %></td>
+		</tr>
+	<% end %>
+	
+	<% if @dados.size == 0 %>
+		<em>Não há dados cadastrados!</em>
+	<% end %>
+</table>
+

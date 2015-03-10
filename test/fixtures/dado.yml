@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo: placa
+  rodovia: br-160
+  sentido: rio
+  conservacao: 1
+
+two:
+  tipo: placao
+  rodovia: br-110
+  sentido: sao paulo
+  conservacao: 1

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<title>Sigvia</title>
+	
+	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+
+<h1>Sigvia</h1>
+
+<%= link_to "Importação", controller: "dado", action: "importa" %>
+<%= link_to "Relatório", controller: "dado", action: "relatorio" %>
+
+<%= yield %>
+
+</body>
+</html>
